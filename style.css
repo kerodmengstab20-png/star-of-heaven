@@ -1,0 +1,437 @@
+
+/* =====================================
+   STARS OF HEAVEN
+   Extern CSS – style.css
+   ===================================== */
+
+/* 1. Variabler och grundinställningar */
+
+:root {
+    --bakgrund: #0b0b0f;
+    --kortbakgrund: #191920;
+    --sekundar-bakgrund: #24242d;
+    --accent: #e32636;
+    --accent-hover: #ff4b5c;
+    --text: #f4f4f5;
+    --text-dampad: #b8b8c2;
+    --kant: #383842;
+    --skugga: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bakgrund);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* 2. Sidhuvud */
+
+.sidhuvud {
+    background: linear-gradient(135deg, #111116, #2b1017);
+    text-align: center;
+    padding: 45px 20px;
+    border-bottom: 3px solid var(--accent);
+}
+
+.sidhuvud h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 5px;
+    color: var(--accent);
+    text-shadow: 0 0 18px rgba(227, 38, 54, 0.35);
+}
+
+.sidhuvud p {
+    color: var(--text-dampad);
+    font-style: italic;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+
+/* 3. Navigationsmeny */
+
+nav {
+    background-color: #15151b;
+    border-bottom: 1px solid var(--kant);
+    position: relative;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 17px 25px;
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+nav a[aria-current="page"] {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+}
+
+/* 4. Huvudinnehåll */
+
+main {
+    max-width: 1150px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+section {
+    margin-bottom: 55px;
+}
+
+h2 {
+    color: var(--accent);
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+}
+
+h3 {
+    color: #ff6976;
+    margin: 15px 0 10px;
+}
+
+h4 {
+    color: var(--text);
+    margin: 20px 0 10px;
+}
+
+p {
+    color: var(--text-dampad);
+    margin-bottom: 15px;
+}
+
+/* 5. Hero-sektion med stor bild */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--kortbakgrund);
+    border: 1px solid var(--kant);
+    border-radius: 14px;
+    box-shadow: var(--skugga);
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    filter: brightness(55%);
+    transition: filter 0.4s ease;
+}
+
+.hero:hover img {
+    filter: brightness(70%);
+}
+
+.hero-text {
+    padding: 30px;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: clamp(1.7rem, 4vw, 2.7rem);
+    border-bottom: none;
+    margin-bottom: 12px;
+}
+
+.hero-text p {
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+/* 6. Knappar */
+
+.knapp {
+    display: inline-block;
+    background: linear-gradient(135deg, #c7192b, #f03b4b);
+    color: #ffffff;
+    padding: 13px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(227, 38, 54, 0.25);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.knapp:hover,
+.knapp:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(227, 38, 54, 0.4);
+}
+
+/* 7. Grid-layout för kort */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* 8. Album- och medlemskort */
+
+.kort {
+    background: linear-gradient(145deg, #1d1d25, #141419);
+    border: 1px solid var(--kant);
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: var(--skugga);
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.kort:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.kort img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.kort h3 {
+    font-size: 1.3rem;
+}
+
+.kort p {
+    text-align: left;
+}
+
+/* 9. Albumens låtlistor */
+
+.kort ol {
+    text-align: left;
+    padding-left: 28px;
+    margin-top: 10px;
+}
+
+.kort ol li {
+    padding: 8px;
+    border-bottom: 1px solid var(--kant);
+    transition: background-color 0.25s ease;
+}
+
+/* nth-child: varannan låt får annan bakgrund */
+
+.kort ol li:nth-child(even) {
+    background-color: var(--sekundar-bakgrund);
+}
+
+.kort ol li:hover {
+    background-color: #482027;
+}
+
+/* 10. Topplista med tabell */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background-color: var(--kortbakgrund);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--skugga);
+}
+
+thead {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--kant);
+}
+
+th {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* Varannan tabellrad får en annan färg */
+
+tbody tr:nth-child(even) {
+    background-color: var(--sekundar-bakgrund);
+}
+
+tbody tr:hover {
+    background-color: #482027;
+}
+
+/* 11. Gruppselektorer */
+
+header,
+nav,
+main,
+footer {
+    width: 100%;
+}
+
+h2,
+h3,
+h4 {
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* 12. Sidfot */
+
+footer {
+    background-color: #15151b;
+    border-top: 2px solid var(--accent);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    color: var(--text-dampad);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* 13. Responsiv design: surfplattor */
+
+@media (max-width: 850px) {
+    main {
+        width: 92%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .hero img {
+        height: 330px;
+    }
+
+    nav a {
+        padding: 15px 18px;
+    }
+}
+
+/* 14. Responsiv design: mobiltelefoner */
+
+@media (max-width: 560px) {
+    .sidhuvud {
+        padding: 30px 15px;
+    }
+
+    .sidhuvud h1 {
+        letter-spacing: 2px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li,
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        width: 92%;
+        padding: 25px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero img {
+        height: 240px;
+    }
+
+    .hero-text {
+        padding: 22px 15px;
+    }
+
+    .kort {
+        padding: 18px;
+    }
+
+    th,
+    td {
+        padding: 9px 6px;
+        font-size: 0.8rem;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* 15. Respektera användarens inställning
+   för minskade animationer */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
